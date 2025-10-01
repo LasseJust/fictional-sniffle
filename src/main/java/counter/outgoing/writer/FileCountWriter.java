@@ -1,7 +1,9 @@
 package counter.outgoing.writer;
 
-import counter.domain.WordCount;
-import counter.outgoing.files.FileService;
+import counter.domain.exception.DataWriteException;
+import counter.domain.port.CountWriter;
+import counter.domain.model.WordCount;
+import counter.outgoing.shared.file.FileService;
 import counter.outgoing.writer.grouping.GroupingStrategy;
 
 import java.io.BufferedWriter;

@@ -1,5 +1,6 @@
 package counter.domain;
 
+import counter.domain.model.WordCount;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.data.MapEntry;
 import org.junit.jupiter.api.Test;

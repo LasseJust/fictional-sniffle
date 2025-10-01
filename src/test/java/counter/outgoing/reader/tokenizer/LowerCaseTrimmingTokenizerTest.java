@@ -1,5 +1,6 @@
 package counter.outgoing.reader.tokenizer;
 
+import counter.domain.tokenizer.LowerCaseTrimmingTokenizer;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,8 @@
 package counter.outgoing.reader.word;
 
-import counter.outgoing.files.FileService;
-import counter.outgoing.reader.tokenizer.Tokenizer;
+import counter.domain.model.WordSource;
+import counter.outgoing.shared.file.FileService;
+import counter.domain.tokenizer.Tokenizer;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;

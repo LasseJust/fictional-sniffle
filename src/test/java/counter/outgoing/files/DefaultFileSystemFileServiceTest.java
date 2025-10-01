@@ -1,6 +1,8 @@
 package counter.outgoing.files;
 
-import counter.outgoing.reader.DataReadException;
+import counter.domain.exception.DataReadException;
+import counter.outgoing.shared.file.DefaultFileSystemFileService;
+import counter.outgoing.shared.file.FileService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

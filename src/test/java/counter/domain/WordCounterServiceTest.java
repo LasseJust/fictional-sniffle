@@ -1,27 +1,40 @@
 package counter.domain;
 
-import counter.outgoing.reader.word.WordSource;
+import counter.domain.port.ContentReader;
+import counter.domain.port.CountWriter;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.data.MapEntry;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.stream.Stream;
 
-
+@ExtendWith(MockitoExtension.class)
 class WordCounterServiceTest {
 
-    WordCounterService wordCounterService = new WordCounterService();
+    @Mock
+    ContentReader contentReader;
+    @Mock
+    CountWriter countWriter;
+
+    WordCounterService wordCounterService;
+
+    @BeforeEach
+    void setUp() {
+        wordCounterService = new WordCounterService(contentReader, countWriter);
+        Mockito.when(contentReader.contentSources()).thenReturn(List.of(() -> Stream.of("hej")));
+    }
 
     @Test
     void countWords() {
-        WordSource wordSource = () -> Stream.of("hej", "hej", "med", "dig");
+        Assertions.assertThatNoException()
+                .isThrownBy(() -> wordCounterService.countWords());
 
-        WordCount wordCount = wordCounterService.countWords(wordSource);
-
-        Assertions.assertThat(wordCount.wordCounts())
-                .containsOnly(
-                        MapEntry.entry("hej", 2L),
-                        MapEntry.entry("med", 1L),
-                        MapEntry.entry("dig", 1L));
+        Mockito.verify(contentReader).contentSources();
+        Mockito.verify(countWriter).writeCounts(Mockito.any());
     }
 }

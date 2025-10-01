@@ -1,10 +1,11 @@
 package counter.outgoing.reader;
 
-import counter.outgoing.files.FileService;
+import counter.domain.port.ContentReader;
+import counter.outgoing.shared.file.FileService;
 import counter.outgoing.reader.filter.FileFilter;
-import counter.outgoing.reader.tokenizer.Tokenizer;
+import counter.domain.tokenizer.Tokenizer;
 import counter.outgoing.reader.word.FileWordSource;
-import counter.outgoing.reader.word.WordSource;
+import counter.domain.model.WordSource;
 
 import java.nio.file.Path;
 import java.util.List;

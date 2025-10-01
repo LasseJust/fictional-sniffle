@@ -1,6 +1,6 @@
-package counter.outgoing.reader;
+package counter.domain.port;
 
-import counter.outgoing.reader.word.WordSource;
+import counter.domain.model.WordSource;
 
 import java.util.List;
 

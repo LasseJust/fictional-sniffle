@@ -1,18 +1,29 @@
 package counter.domain;
 
-import counter.outgoing.reader.word.WordSource;
+
+import counter.domain.model.WordCount;
+import counter.domain.model.WordSource;
+import counter.domain.port.ContentReader;
+import counter.domain.port.CountWriter;
 
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class WordCounterService {
 
-    public WordCount countWords(WordSource wordSource) {
-        try (Stream<String> words = wordSource.words()) {
-            Map<String, Long> counts = words.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-            return new WordCount(counts);
-        }
+    private final ContentReader contentReader;
+    private final CountWriter countWriter;
+
+    public WordCounterService(ContentReader contentReader,
+                              CountWriter countWriter) {
+        this.contentReader = contentReader;
+        this.countWriter = countWriter;
+    }
+
+    public void countWords() {
+        WordCount combinedWordCount = contentReader.contentSources()
+                .parallelStream()
+                .map(WordSource::countWords)
+                .reduce(new WordCount(Map.of()), WordCount::mergeCounts);
+        countWriter.writeCounts(combinedWordCount);
     }
 }

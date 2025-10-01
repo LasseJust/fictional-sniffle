@@ -1,4 +1,4 @@
-package counter.domain;
+package counter.domain.model;
 
 import java.util.HashMap;
 import java.util.Map;

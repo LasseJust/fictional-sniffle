@@ -1,7 +1,7 @@
 package counter.outgoing.writer;
 
-import counter.domain.WordCount;
-import counter.outgoing.files.FileService;
+import counter.domain.model.WordCount;
+import counter.outgoing.shared.file.FileService;
 import counter.outgoing.writer.grouping.GroupByLetterWithExcludeFile;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

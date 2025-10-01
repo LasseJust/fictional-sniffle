@@ -1,9 +1,9 @@
 package counter.outgoing.reader;
 
-import counter.outgoing.files.FileService;
+import counter.outgoing.shared.file.FileService;
 import counter.outgoing.reader.filter.FileFilter;
-import counter.outgoing.reader.tokenizer.LowerCaseTrimmingTokenizer;
-import counter.outgoing.reader.word.WordSource;
+import counter.domain.tokenizer.LowerCaseTrimmingTokenizer;
+import counter.domain.model.WordSource;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

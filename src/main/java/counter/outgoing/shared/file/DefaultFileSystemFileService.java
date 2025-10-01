@@ -1,7 +1,7 @@
-package counter.outgoing.files;
+package counter.outgoing.shared.file;
 
-import counter.outgoing.reader.DataReadException;
-import counter.outgoing.writer.DataWriteException;
+import counter.domain.exception.DataReadException;
+import counter.domain.exception.DataWriteException;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

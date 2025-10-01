@@ -3,7 +3,10 @@ package counter.ingoing.cli;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public record CmdLineArgs(Path inputPath, Path outputPath, Path excludeFilePath) {
+public record CmdLineArgs(Path inputPath,
+                          Path outputPath,
+                          Path excludeFilePath,
+                          String excludeOutputFilename) {
     public CmdLineArgs {
         if (!Files.isDirectory(inputPath)) {
             throw new IllegalArgumentException("Input path is not a directory");

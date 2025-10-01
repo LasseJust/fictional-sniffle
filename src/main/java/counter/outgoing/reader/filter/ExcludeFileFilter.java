@@ -1,6 +1,6 @@
 package counter.outgoing.reader.filter;
 
-import counter.outgoing.files.FileService;
+import counter.outgoing.shared.file.FileService;
 
 import java.nio.file.Path;
 import java.util.Set;

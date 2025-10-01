@@ -1,7 +1,7 @@
 package counter.outgoing.writer.grouping;
 
-import counter.outgoing.files.FileService;
-import counter.outgoing.reader.tokenizer.Tokenizer;
+import counter.outgoing.shared.file.FileService;
+import counter.domain.tokenizer.Tokenizer;
 
 import java.nio.file.Path;
 import java.util.Set;

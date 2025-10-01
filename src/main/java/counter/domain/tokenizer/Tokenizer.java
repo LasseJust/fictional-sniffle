@@ -1,4 +1,4 @@
-package counter.outgoing.reader.tokenizer;
+package counter.domain.tokenizer;
 
 import java.util.stream.Stream;
 

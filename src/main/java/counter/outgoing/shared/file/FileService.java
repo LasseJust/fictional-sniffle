@@ -1,4 +1,4 @@
-package counter.outgoing.files;
+package counter.outgoing.shared.file;
 
 import java.io.BufferedWriter;
 import java.nio.file.Path;
